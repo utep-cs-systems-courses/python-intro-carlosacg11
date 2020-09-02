@@ -32,10 +32,11 @@ def countWords(rFile,wFile):
             wordcount[word] = 1
         else:
             wordcount[word] += 1
-    sorted(wordcount)
+    sortedDict = dict( sorted(wordcount.items(), key=lambda x: x[0].lower()) )
     with open(wFile, 'w') as f:
-        for k,v in wordcount.items():
+        for k,v in sortedDict.items():
             print(k, v, file=f)
 
 countWords("speech.txt","output.txt")
+    
     
